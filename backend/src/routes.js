@@ -18,5 +18,3 @@ router.get('/', async (req, res) => {
 })
 
 module.exports = router;
-
-/*0000052-49.2014.5.02.0252*/
