@@ -13,6 +13,7 @@
     "cors": "^2.8.5",
     "downloads-folder": "^1.0.4",
     "express": "^4.17.1",
+    "pdf-parse": "^1.1.1",
     "puppeteer": "^3.0.4",
     "request": "^2.88.2"
   }

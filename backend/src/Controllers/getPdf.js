@@ -35,7 +35,7 @@ async function getPdf(req, res, next) {
     }
     await page.keyboard.press('Enter');
     
-    return next()
+    next()
 }
 
 module.exports = getPdf;

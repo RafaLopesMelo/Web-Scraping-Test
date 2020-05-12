@@ -1,15 +1,15 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
+const pdf = require('pdf-parse');
 const downloadsFolder = require('downloads-folder');
 const downloadsPath = downloadsFolder();
 
 const processoNumero = '1000452-49.2013.5.02.0521';
 const pdfPath = `${downloadsPath}/${processoNumero}.pdf`;
 
-async function getData(req, res) {
-    const browser = await puppeteer.launch({ headless: false });
-    let page = await browser.newPage();
-    await page.goto(pdfPath);
+async function getData() {
+    const dataBuffer = fs.readFileSync(pdfPath);
+    pdf(dataBuffer).then(data => console.log(data.text));
 }
 
 async function verifyFileExists(req, res) {
