@@ -1,9 +1,10 @@
 const puppeteer = require('puppeteer');
+const path2Chrome = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe'
 
 const processoNumero = '1000452-49.2013.5.02.0521'.substring(0, 15) + '1000452-49.2013.5.02.0521'.substring(20, 24)
 
-async function getPdf(req, res, next) {
-    const browser = await puppeteer.launch({ headless: false });
+async function getPdf() {
+    const browser = await puppeteer.launch({ headless: false, executablePath: path2Chrome });
     let page = await browser.newPage();
 
     await page.goto('https://pje.trt2.jus.br/primeirograu/login.seam?cid=515669');
@@ -34,8 +35,6 @@ async function getPdf(req, res, next) {
         await page.keyboard.press('Tab');
     }
     await page.keyboard.press('Enter');
-    
-    next()
 }
 
 module.exports = getPdf;
