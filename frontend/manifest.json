@@ -1,0 +1,18 @@
+{
+    "manifest_version": 2,
+    "version": "0.0.1",
+    "name": "Preenche-Campos",
+    "default_locale": "pt-br",
+    "description": "Preenche campos relacionados à PDF's do PJE",
+    "author": "Rafael Lopes de Melo",
+    "page_action": {
+        "default_title": "Meridio Web"
+    },
+    "background": {
+        "scripts": ["../backend/index.js"]
+    },
+    "content_scripts": [{
+        "js": ["button.js"],
+        "matches": ["http://srvmk01.kuriermeridio.com.br/martins/#/home/"]
+    }]
+}

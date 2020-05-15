@@ -28,12 +28,13 @@ async function getData(req, res) {
     }
 
     const data = {
-        author: filteredDataArray[searchForData('RECLAMANTE')],
-        defendent: filteredDataArray[searchForData('RECLAMADO')],
-        defendentCnpj: filteredDataArray[searchForData('CNPJ')],
-        processNumber: filteredDataArray[searchForData('ATOrd')],
-        court: filteredDataArray[searchForData('TRIBUNAL')],
-        classification: filteredDataArray[searchForData('AÇÃOTRABALHISTA')]
+        author: filteredDataArray[searchForData('RECLAMANTE')].split(':')[1],
+        authorCpf:  filteredDataArray[searchForData('RECLAMANTE')].split(':')[2],
+        defendent: filteredDataArray[searchForData('RECLAMADO')].split(':')[1],
+        defendentCnpj: filteredDataArray[searchForData('CNPJ')].split(':')[1],
+        processNumber: filteredDataArray[searchForData('ATOrd')].split('ATOrd')[1],
+        court: filteredDataArray[searchForData('Tribunal')],
+        classification: filteredDataArray[searchForData('AÇÃOTRABALHISTA')].split('-')[1]
     }
     
     res.json({data, filteredDataArray});
